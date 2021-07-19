@@ -1,4 +1,4 @@
-# Adibags Shadowlands Fishing
+# Adibags Shadowlands Fish
 sorts fish into their own category.
 
 ## REQUIRES ADIBAGS
