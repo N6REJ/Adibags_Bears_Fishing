@@ -1,0 +1,9 @@
+## Interface: 90100
+## Title: AdiBags - Shadowlands Crafting-Fishing
+## Version: 1.4
+## Author: Bearesquishy
+## DefaultState: enabled
+## Dependancies: AdiBags
+
+database.lua
+core.lua
