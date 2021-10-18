@@ -15,7 +15,7 @@ local Result = {}
 
 -- Addon info
 local version = GetAddOnMetadata(ADDON_NAME, "Version");
-local addoninfo = 'Shadowlands Crafting - ' .. database["FilterTitle"];
+local addoninfo = 'Shadowlands Fishing - ' .. database["FilterTitle"];
 
 -- Register this addon with AdiBags
 local setFilter = AdiBags:RegisterFilter(ADDON_NAME, 100, "ABEvent-1.0")
@@ -33,11 +33,11 @@ local function MatchIDs_Init(self)
 	wipe(Result)
 
 	if self.db.profile.moveBait then
-		AddToSet(Result, Bait)
+		AddToSet(Result, database["Bait"])
 	end
 
 	if self.db.profile.moveFish then
-		AddToSet(Result, Fish)
+		AddToSet(Result, database["Fish"])
 	end
 
 	return Result
@@ -59,8 +59,8 @@ end
 function setFilter:OnInitialize()
 	self.db = AdiBags.db:RegisterNamespace(ADDON_NAME)
 		profile = {
-		moveBait = true,
-		moveFish = true,
+			moveBait = true,
+			moveFish = true,
 		}
 end
 

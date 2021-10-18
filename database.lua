@@ -5,12 +5,12 @@
 local ADDON_NAME, ADDON_TABLE, addon = ...
 
 -- Create addon table
-database = { }
+local database = { }
 ADDON_TABLE.database = database
 database["FilterTitle"] = "Fishing"
 
 -- Database of items
-database{
+database = {
 	Fish = {
 		-- ID,	--Item name
 		173032,	-- Lost Sole
