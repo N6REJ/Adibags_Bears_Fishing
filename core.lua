@@ -32,7 +32,13 @@ end
 local function MatchIDs_Init(self)
 	wipe(Result)
 
-	AddToSet(Result, database["FilterTitle"])
+	if self.db.profile.moveBait then
+		AddToSet(Result, Bait)
+	end
+
+	if self.db.profile.moveFish then
+		AddToSet(Result, Fish)
+	end
 
 	return Result
 end
@@ -52,6 +58,10 @@ end
 
 function setFilter:OnInitialize()
 	self.db = AdiBags.db:RegisterNamespace(ADDON_NAME)
+		profile = {
+		moveBait = true,
+		moveFish = true,
+		}
 end
 
 function setFilter:Update()
