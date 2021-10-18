@@ -8,19 +8,19 @@ local ADDON_NAME, ADDON_TABLE, addon = ...
 -- Get reference to AdiBags addon
 local AdiBags = LibStub("AceAddon-3.0"):GetAddon("AdiBags")
 
--- Addon info
-local version = GetAddOnMetadata(ADDON_NAME, "Version");
-local addoninfo = 'Shadowlands Crafting - ' .. N["FilterTitle"];
-
-local N = ADDON_TABLE.N
+local database = ADDON_TABLE.database
 local MatchIDs
 local Tooltip
 local Result = {}
 
+-- Addon info
+local version = GetAddOnMetadata(ADDON_NAME, "Version");
+local addoninfo = 'Shadowlands Crafting - ' .. database["FilterTitle"];
+
 -- Register this addon with AdiBags
 local setFilter = AdiBags:RegisterFilter(ADDON_NAME, 100, "ABEvent-1.0")
 setFilter.uiName = addoninfo
-setFilter.uiDesc = "Puts base " .. N["FilterTitle"] .. " crafting mats from drops or farming in their own group" .. "     Version: " .. version
+setFilter.uiDesc = "Puts base " .. database["FilterTitle"] .. " crafting mats from drops or farming in their own group" .. "     Version: " .. version
 
 -- ??
 local function AddToSet(Set, List)
@@ -32,7 +32,7 @@ end
 local function MatchIDs_Init(self)
 	wipe(Result)
 
-	AddToSet(Result, N["database"])
+	AddToSet(Result, database["FilterTitle"])
 
 	return Result
 end
@@ -70,7 +70,7 @@ end
 function setFilter:Filter(slotData)
 	MatchIDs = MatchIDs or MatchIDs_Init(self)
 	if MatchIDs[slotData.itemId] then
-		return N["FilterTitle"]
+		return database["FilterTitle"]
 	end
 
 	Tooltip = Tooltip or Tooltip_Init()

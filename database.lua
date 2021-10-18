@@ -5,20 +5,16 @@
 local ADDON_NAME, ADDON_TABLE, addon = ...
 
 -- Create addon table
-N = { }
-ADDON_TABLE.N = N
-
--- Label to use
-N["FilterTitle"] = "Fish"
+database = { }
+ADDON_TABLE.database = database
+database["FilterTitle"] = "Fish"
 
 -- Database of items
-N["database"] = {
 	-- ID,	--Item name
-	173032,	-- Lost Sole
-	173033,	-- Iridescent Amberjack
-	173034,	-- Silvergill Pike
-	173035,	-- Pocked Bonefish
-	173036,	-- Spinefin Piranha
-	173037,	-- Elysian Thade
-	174327,	-- Malformed Gnasher
-}
+	database[173032] = "fish"	-- Lost Sole
+	database[173033] = "fish"	-- Iridescent Amberjack
+	database[173034] = "fish"	-- Silvergill Pike
+	database[173035] = "fish"	-- Pocked Bonefish
+	database[173036] = "fish"	-- Spinefin Piranha
+	database[173037] = "fish"	-- Elysian Thade
+	database[174327] = "fish"	-- Malformed Gnasher
