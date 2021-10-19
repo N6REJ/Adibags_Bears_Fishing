@@ -11,6 +11,10 @@ database["FilterTitle"] = "Fishing"
 
 -- Database of items
 database = {
+	Categories = {
+		"Fish",
+		"Bait"
+	}
 	Fish = {
 		-- ID,	--Item name
 		173032,	-- Lost Sole
