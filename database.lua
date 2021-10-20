@@ -10,12 +10,13 @@ ADDON_TABLE.database = database
 database["FilterTitle"] = "Fishing"
 
 -- Database of items
-database = {
-	Categories = {
+
+database["Categories"] = {
 		"Fish",
 		"Bait"
 	}
-	Fish = {
+
+database["Fish"] = {
 		-- ID,	--Item name
 		173032,	-- Lost Sole
 		173033,	-- Iridescent Amberjack
@@ -25,7 +26,8 @@ database = {
 		173037,	-- Elysian Thade
 		174327	-- Malformed Gnasher
 	}
-	Bait = {
+
+database["Bait"] = {
 		 -- ID,	--Item name
 		173038,	-- Lose Sole bait
 		173039,	-- Iridescent amberjack bait
@@ -34,4 +36,3 @@ database = {
 		173042,	-- Spinefin piranha bait
 		173043	-- Elysian thade bait
 	}
-}

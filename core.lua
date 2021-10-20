@@ -13,6 +13,9 @@ local MatchIDs
 local Tooltip
 local Result = {}
 
+-- Create World Variable
+ShadowLands_Fishing = database
+
 -- Addon info
 local version = GetAddOnMetadata(ADDON_NAME, "Version");
 local addoninfo = 'Shadowlands Fishing - ' .. database["FilterTitle"];
