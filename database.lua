@@ -13,7 +13,7 @@ database["FilterTitle"] = "Fishing"
 
 database["Categories"] = {
 		"Fish",
-		"Bait"
+		"Bait",
 	}
 
 database["Fish"] = {
@@ -24,7 +24,7 @@ database["Fish"] = {
 		173035,	-- Pocked Bonefish
 		173036,	-- Spinefin Piranha
 		173037,	-- Elysian Thade
-		174327	-- Malformed Gnasher
+		174327,	-- Malformed Gnasher
 	}
 
 database["Bait"] = {
@@ -34,5 +34,5 @@ database["Bait"] = {
 		173040,	-- Silvergill pike bait
 		173041,	-- Pocked Bonefish bait
 		173042,	-- Spinefin piranha bait
-		173043	-- Elysian thade bait
+		173043,	-- Elysian thade bait
 	}
