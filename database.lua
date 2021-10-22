@@ -13,27 +13,51 @@ db.desc = "Fish and bait found while fishing in shadowlands"
 
 	-- db of items
 db["Categories"] = {
-		"Fish",
-		"Bait",
-	}
+	"Fish",
+	"Bait",
+}
 
 db["Fish"] = {
-		-- ID,	--Item name
-		173032,	-- Lost Sole
-		173033,	-- Iridescent Amberjack
-		173034,	-- Silvergill Pike
-		173035,	-- Pocked Bonefish
-		173036,	-- Spinefin Piranha
-		173037,	-- Elysian Thade
-		174327,	-- Malformed Gnasher
-	}
+	-- ID,	--Item name
+	173032,	-- Lost Sole
+	173033,	-- Iridescent Amberjack
+	173034,	-- Silvergill Pike
+	173035,	-- Pocked Bonefish
+	173036,	-- Spinefin Piranha
+	173037,	-- Elysian Thade
+	174327,	-- Malformed Gnasher
+}
 
 db["Bait"] = {
-		 -- ID,	--Item name
-		173038,	-- Lose Sole bait
-		173039,	-- Iridescent amberjack bait
-		173040,	-- Silvergill pike bait
-		173041,	-- Pocked Bonefish bait
-		173042,	-- Spinefin piranha bait
-		173043,	-- Elysian thade bait
+	 -- ID,	--Item name
+	173038,	-- Lose Sole bait
+	173039,	-- Iridescent amberjack bait
+	173040,	-- Silvergill pike bait
+	173041,	-- Pocked Bonefish bait
+	173042,	-- Spinefin piranha bait
+	173043,	-- Elysian thade bait
+}
+
+	-- Create profile entries in Adibags
+db.profile = {
+	profile = {
+		moveFish = true,
+        moveBait = true,
 	}
+}
+
+-- Set Options
+db.options = {
+	moveFish = {
+		name = "Fish",
+		desc = "Shadowlands Fish",
+		type = "toggle",
+		order = 10
+	},
+	moveBait = {
+		name = "Bait",
+		desc = "Shadowlands Bait",
+		type = "toggle",
+		order = 20
+	},
+}
