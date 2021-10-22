@@ -6,10 +6,9 @@ local addonName, addonTable, addon = ...
 
 -- Create addon table
 local db = { }
-addonTable.db = db
 
 db.name = "Shadowlands Fishing"
-db.desc = "Fish and bait found while fishing in shadowlands"
+db.desc = "Fish and Bait found while fishing in shadowlands"
 
 	-- db of items
 db["Categories"] = {
@@ -61,3 +60,6 @@ db.options = {
 		order = 20
 	},
 }
+
+-- now that db is populated lets pass it on.
+addonTable.db = db

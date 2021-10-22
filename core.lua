@@ -20,6 +20,7 @@ local Result = { }
 local Group
 local Categories = db["Categories"]
 
+
 -- Create World Variable for db
 ShadowLands_Fishing = db
 
@@ -78,8 +79,7 @@ function setFilter:OnDisable()
     AdiBags:UpdateFilters()
 end
 
-function setFilter:Filter(slotData, Categories)
-
+function setFilter:Filter(slotData)
     -- sort Categories
     for key, Group in ipairs(Categories) do
 
