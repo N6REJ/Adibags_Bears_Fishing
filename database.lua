@@ -47,13 +47,13 @@ db.profile = {
 
 -- Set Options
 db.options = {
-	moveFish = {
+	moveBait = {
 		name = "Fish",
 		desc = "Shadowlands Fish",
 		type = "toggle",
 		order = 10
 	},
-	moveBait = {
+	moveFish = {
 		name = "Bait",
 		desc = "Shadowlands Bait",
 		type = "toggle",
