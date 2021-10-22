@@ -43,9 +43,11 @@ end
 local function MatchIDs_Init(self, Group)
     wipe(Result)
 
-    -- Get the list of all items in db
-    AddToSet(Result, db[Group])
-
+     -- sort Categories
+    for key, Group in ipairs(Categories) do
+        -- Get the list of all items in db
+        AddToSet(Result, db[Group])
+    end
     return Result
 end
 
@@ -80,9 +82,9 @@ function setFilter:OnDisable()
 end
 
 function setFilter:Filter(slotData)
+
     -- sort Categories
     for key, Group in ipairs(Categories) do
-
         -- Sort Items
         MatchIDs = MatchIDs or MatchIDs_Init(self, Group)
         if MatchIDs[slotData.itemId] then
@@ -91,7 +93,7 @@ function setFilter:Filter(slotData)
             return Group
 
         end
-
+    
         -- Continue ?
         Tooltip = Tooltip or Tooltip_Init()
         Tooltip:SetOwner(UIParent, "ANCHOR_NONE")
