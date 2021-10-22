@@ -41,15 +41,15 @@ local function AddToSet(Set, List)
 end
 
 local function MatchIDs_Init(self, Group)
-    wipe(Result)
-
-     -- sort Categories
-    for key, Group in ipairs(Categories) do
-        -- Get the list of all items in db
-        AddToSet(Result, db[Group])
-    end
-    return Result
+        wipe(Result)
+        print(self.db.profile.profile["move" .. Group])
+            -- Get the list of all items in db
+            if self.db.profile.Group then
+                AddToSet(Result, Group)
+            end
+        return Result
 end
+
 
 local function Tooltip_Init()
     local tip, leftside = CreateFrame("GameTooltip"), { }
@@ -85,6 +85,7 @@ function setFilter:Filter(slotData)
 
     -- sort Categories
     for key, Group in ipairs(Categories) do
+        print(Group)
         -- Sort Items
         MatchIDs = MatchIDs or MatchIDs_Init(self, Group)
         if MatchIDs[slotData.itemId] then

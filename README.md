@@ -1,5 +1,5 @@
-# Adibags Shadowlands Fish
-sorts fish into their own category.
+# Adibags Shadowlands Fishing
+sorts "Fish" & "Bait" into their own categories.
 
 ## REQUIRES ADIBAGS
 ![settings](https://user-images.githubusercontent.com/1850089/126241682-ebac7054-33ed-4ab5-8f82-7ed1b069abfb.png)
