@@ -3,7 +3,7 @@
 -- Source on GitHub: https://github.com/N6REJ/AdiBags_Shadowlands_Crafting
 
 
-local ADDON_NAME, ADDON_TABLE, addon = ...
+local addonName, addonTable, addon = ...
 
 -- Get reference to AdiBags addon
 local AdiBags = LibStub("AceAddon-3.0"):GetAddon("AdiBags")
@@ -13,7 +13,7 @@ LoadAddOn("ViragDevTool")
 ViragDevTool:ViragDevTool_AddData(addonTable)
 
 
-local db = ADDON_TABLE.db
+local db = addonTable.db
 local MatchIDs
 local Tooltip
 local Result = { }
@@ -23,10 +23,10 @@ local group
 ShadowLands_Fishing = db
 
 -- addon info
-local version = GetaddonMetadata(ADDON_NAME, "Version");
+local version = GetAddOnMetadata(addonName, "Version");
 
 -- Register this addon with AdiBags
-local setFilter = AdiBags:RegisterFilter(ADDON_NAME, 100, "ABEvent-1.0")
+local setFilter = AdiBags:RegisterFilter(addonName, 100, "ABEvent-1.0")
 setFilter.uiName = db.name
 setFilter.uiDesc = db.desc .. "     Version: " .. version
 
@@ -61,7 +61,7 @@ local function Tooltip_Init()
 end
 
 function setFilter:OnInitialize()
-    self.db = AdiBags.db:RegisterNamespace(ADDON_NAME)
+    self.db = AdiBags.db:RegisterNamespace(addonName)
 end
 
 function setFilter:Update()
