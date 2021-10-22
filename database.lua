@@ -1,26 +1,23 @@
--- AdiBags_Shadowlands_Crafting - Fish Database
+-- AdiBags_Shadowlands_Crafting - Fish db
 -- Created by N6REJ character is Bearesquishy - dalaran please credit whenever.
 -- Source on GitHub: https://github.com/N6REJ/AdiBags_Shadowlands_Crafting
 --
-local addonName, addonTable, addon = ...
-
-Loadaddon("ViragDevTool")
-ViragDevTool:ViragDevTool_AddData(addonTable)
+local ADDON_NAME, ADDON_TABLE, addon = ...
 
 -- Create addon table
-local database = { }
+local db = { }
+ADDON_TABLE.db = db
 
-addonTable.database = database
-addon.name = "Shadowlands Fishing"
-addon.desc = "Fish and bait found while fishing in shadowlands"
+db.name = "Shadowlands Fishing"
+db.desc = "Fish and bait found while fishing in shadowlands"
 
--- Database of items
-database["Categories"] = {
+	-- db of items
+db["Categories"] = {
 		"Fish",
 		"Bait",
 	}
 
-database["Fish"] = {
+db["Fish"] = {
 		-- ID,	--Item name
 		173032,	-- Lost Sole
 		173033,	-- Iridescent Amberjack
@@ -31,7 +28,7 @@ database["Fish"] = {
 		174327,	-- Malformed Gnasher
 	}
 
-database["Bait"] = {
+db["Bait"] = {
 		 -- ID,	--Item name
 		173038,	-- Lose Sole bait
 		173039,	-- Iridescent amberjack bait

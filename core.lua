@@ -3,29 +3,32 @@
 -- Source on GitHub: https://github.com/N6REJ/AdiBags_Shadowlands_Crafting
 
 
-local addonName, addonTable, addon = ...
+local ADDON_NAME, ADDON_TABLE, addon = ...
 
 -- Get reference to AdiBags addon
-local AdiBags = LibStub("Aceaddon-3.0"):Getaddon("AdiBags")
+local AdiBags = LibStub("AceAddon-3.0"):GetAddon("AdiBags")
 
-local database = addonTable.database
+-- Debug tools
+LoadAddOn("ViragDevTool")
+ViragDevTool:ViragDevTool_AddData(addonTable)
+
+
+local db = ADDON_TABLE.db
 local MatchIDs
 local Tooltip
 local Result = { }
 local group
---local name = addonTable.name
---local desc = addonTable.desc
-print('addon.name')
--- Create World Variable for database
-ShadowLands_Fishing = database
+
+-- Create World Variable for db
+ShadowLands_Fishing = db
 
 -- addon info
-local version = GetaddonMetadata(addonName, "Version");
+local version = GetaddonMetadata(ADDON_NAME, "Version");
 
 -- Register this addon with AdiBags
-local setFilter = AdiBags:RegisterFilter(addonName, 100, "ABEvent-1.0")
-setFilter.uiName = name
-setFilter.uiDesc = desc .. "     Version: " .. version
+local setFilter = AdiBags:RegisterFilter(ADDON_NAME, 100, "ABEvent-1.0")
+setFilter.uiName = db.name
+setFilter.uiDesc = db.desc .. "     Version: " .. version
 
 
 -- ??
@@ -38,8 +41,8 @@ end
 local function MatchIDs_Init(self, group)
     wipe(Result)
 
-    -- Get the list of all items in database
-    AddToSet(Result, database[group])
+    -- Get the list of all items in db
+    AddToSet(Result, db[group])
 
     return Result
 end
@@ -58,7 +61,7 @@ local function Tooltip_Init()
 end
 
 function setFilter:OnInitialize()
-    self.db = AdiBags.db:RegisterNamespace(addonName)
+    self.db = AdiBags.db:RegisterNamespace(ADDON_NAME)
 end
 
 function setFilter:Update()
@@ -77,7 +80,7 @@ end
 function setFilter:Filter(slotData)
 
     -- sort Categories
-    for _, group in ipairs(database["Categories"]) do
+    for _, group in ipairs(db["Categories"]) do
 
         -- Sort Items
         MatchIDs = MatchIDs or MatchIDs_Init(self, group)
