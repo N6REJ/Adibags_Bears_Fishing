@@ -2,11 +2,11 @@
 -- Created by N6REJ character is Bearesquishy - dalaran please credit whenever.
 -- Source on GitHub: https://github.com/N6REJ/AdiBags_Shadowlands_Crafting
 --
-local ADDON_NAME, ADDON_TABLE, addon = ...
+local addonName, addonTable, addon = ...
 
 -- Create addon table
 local db = { }
-ADDON_TABLE.db = db
+addonTable.db = db
 
 db.name = "Shadowlands Fishing"
 db.desc = "Fish and bait found while fishing in shadowlands"
