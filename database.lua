@@ -2,15 +2,19 @@
 -- Created by N6REJ character is Bearesquishy - dalaran please credit whenever.
 -- Source on GitHub: https://github.com/N6REJ/AdiBags_Shadowlands_Crafting
 --
-local ADDON_NAME, ADDON_TABLE, addon = ...
+local addonName, addonTable, addon = ...
+
+Loadaddon("ViragDevTool")
+ViragDevTool:ViragDevTool_AddData(addonTable)
 
 -- Create addon table
 local database = { }
-ADDON_TABLE.database = database
-database["FilterTitle"] = "Fishing"
+
+addonTable.database = database
+addon.name = "Shadowlands Fishing"
+addon.desc = "Fish and bait found while fishing in shadowlands"
 
 -- Database of items
-
 database["Categories"] = {
 		"Fish",
 		"Bait",

@@ -3,29 +3,29 @@
 -- Source on GitHub: https://github.com/N6REJ/AdiBags_Shadowlands_Crafting
 
 
-local ADDON_NAME, ADDON_TABLE, addon = ...
+local addonName, addonTable, addon = ...
 
 -- Get reference to AdiBags addon
-local AdiBags = LibStub("AceAddon-3.0"):GetAddon("AdiBags")
+local AdiBags = LibStub("Aceaddon-3.0"):Getaddon("AdiBags")
 
-local database = ADDON_TABLE.database
+local database = addonTable.database
 local MatchIDs
 local Tooltip
 local Result = { }
--- local GroupName = "Fish"
-
-
+local group
+--local name = addonTable.name
+--local desc = addonTable.desc
+print('addon.name')
 -- Create World Variable for database
 ShadowLands_Fishing = database
 
--- Addon info
-local version = GetAddOnMetadata(ADDON_NAME, "Version");
-local addoninfo = 'Shadowlands Fishing - ' .. database["FilterTitle"];
+-- addon info
+local version = GetaddonMetadata(addonName, "Version");
 
 -- Register this addon with AdiBags
-local setFilter = AdiBags:RegisterFilter(ADDON_NAME, 100, "ABEvent-1.0")
-setFilter.uiName = addoninfo
-setFilter.uiDesc = "Puts base " .. database["FilterTitle"] .. " crafting mats from drops or farming in their own group" .. "     Version: " .. version
+local setFilter = AdiBags:RegisterFilter(addonName, 100, "ABEvent-1.0")
+setFilter.uiName = name
+setFilter.uiDesc = desc .. "     Version: " .. version
 
 
 -- ??
@@ -35,11 +35,11 @@ local function AddToSet(Set, List)
     end
 end
 
-local function MatchIDs_Init(self, GroupName)
+local function MatchIDs_Init(self, group)
     wipe(Result)
 
     -- Get the list of all items in database
-    AddToSet(Result, database[GroupName])
+    AddToSet(Result, database[group])
 
     return Result
 end
@@ -58,7 +58,7 @@ local function Tooltip_Init()
 end
 
 function setFilter:OnInitialize()
-    self.db = AdiBags.db:RegisterNamespace(ADDON_NAME)
+    self.db = AdiBags.db:RegisterNamespace(addonName)
 end
 
 function setFilter:Update()
@@ -77,14 +77,14 @@ end
 function setFilter:Filter(slotData)
 
     -- sort Categories
-    for key, value in ipairs(database["Categories"]) do
+    for _, group in ipairs(database["Categories"]) do
 
         -- Sort Items
-        MatchIDs = MatchIDs or MatchIDs_Init(self, value)
+        MatchIDs = MatchIDs or MatchIDs_Init(self, group)
         if MatchIDs[slotData.itemId] then
-            
+
             -- This sets the name of the group of items
-            return value
+            return group
 
         end
 
