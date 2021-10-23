@@ -36,30 +36,5 @@ db["Bait"] = {
 	173042,	-- Spinefin piranha bait
 	173043,	-- Elysian thade bait
 }
-
-	-- Create profile entries in Adibags
-db.profile = {
-	profile = {
-		moveFish = true,
-		moveBait = true,
-	}
-}
-
--- Set Options
-db.options = {
-	moveFish = {
-		name = "Fish",
-		desc = "Shadowlands Fish",
-		type = "toggle",
-		order = 10
-	},
-	moveBait = {
-		name = "Bait",
-		desc = "Shadowlands Bait",
-		type = "toggle",
-		order = 20
-	},
-}
-
 -- now that db is populated lets pass it on.
 addonTable.db = db
