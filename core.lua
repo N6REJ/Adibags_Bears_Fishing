@@ -42,10 +42,9 @@ end
 
 local function MatchIDs_Init(self, Group)
         wipe(Result)
-        print(self.db.profile.profile["move" .. Group])
             -- Get the list of all items in db
-            if self.db.profile.Group then
-                AddToSet(Result, Group)
+            if self.db.profile["move" .. Group] then
+                AddToSet(Result, db[Group])
             end
         return Result
 end
@@ -82,10 +81,10 @@ function setFilter:OnDisable()
 end
 
 function setFilter:Filter(slotData)
-
+    
     -- sort Categories
     for key, Group in ipairs(Categories) do
-        print(Group)
+
         -- Sort Items
         MatchIDs = MatchIDs or MatchIDs_Init(self, Group)
         if MatchIDs[slotData.itemId] then
@@ -94,7 +93,7 @@ function setFilter:Filter(slotData)
             return Group
 
         end
-    
+
         -- Continue ?
         Tooltip = Tooltip or Tooltip_Init()
         Tooltip:SetOwner(UIParent, "ANCHOR_NONE")
@@ -113,7 +112,7 @@ end
 -- Set options
 function setFilter:GetOptions()
 	return db.options,
-    
+
 	AdiBags:GetOptionHandler(self, false, function ()
 		return self:Update()
 	end)

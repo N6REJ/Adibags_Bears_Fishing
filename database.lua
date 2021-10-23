@@ -41,7 +41,7 @@ db["Bait"] = {
 db.profile = {
 	profile = {
 		moveFish = true,
-        moveBait = true,
+		moveBait = true,
 	}
 }
 
