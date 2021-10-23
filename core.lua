@@ -40,7 +40,7 @@ local function AddToSet(Set, List)
     end
 end
 
-local function MatchIDs_Init(self, Group)
+local function MatchIDs_Init(self)
         wipe(Result)
             -- Get the list of all items in db
             if self.db.profile["move" .. Group] then
@@ -81,16 +81,13 @@ function setFilter:OnDisable()
 end
 
 function setFilter:Filter(slotData)
-    
-    -- sort Categories
-    for key, Group in ipairs(Categories) do
 
         -- Sort Items
-        MatchIDs = MatchIDs or MatchIDs_Init(self, Group)
+        MatchIDs = MatchIDs or MatchIDs_Init(self)
         if MatchIDs[slotData.itemId] then
 
             -- This sets the name of the Group of items
-            return Group
+            return addonName
 
         end
 
@@ -106,14 +103,5 @@ function setFilter:Filter(slotData)
         end
 
         Tooltip:Hide()
-    end
 end
 
--- Set options
-function setFilter:GetOptions()
-	return db.options,
-
-	AdiBags:GetOptionHandler(self, false, function ()
-		return self:Update()
-	end)
-end
