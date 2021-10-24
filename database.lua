@@ -10,31 +10,41 @@ local db = { }
 db.name = "Shadowlands Fishing"
 db.desc = "Fish and Bait found while fishing in shadowlands"
 
-	-- db of items
-db["Categories"] = {
-	"Fish",
-	"Bait",
+-- Filter info
+db.Filter = {
+	["Fish"] = {
+		uiName = "Shadowlands Fish",
+		uiDesc = "Fish found while fishing in Shadowlands",
+		FilterName = "fishFilter",
+		title = "Fish",
+	},
+	["Bait"] = {
+		uiName = "Shadowlands Bait",
+		uiDesc = "Bait found while fishing in Shadowlands",
+		FilterName = "baitFilter",
+		title = "Bait"
+	},
 }
 
-db["Fish"] = {
+db.Fish = {
 	-- ID,	--Item name
-	173032,	-- Lost Sole
-	173033,	-- Iridescent Amberjack
-	173034,	-- Silvergill Pike
-	173035,	-- Pocked Bonefish
-	173036,	-- Spinefin Piranha
-	173037,	-- Elysian Thade
-	174327,	-- Malformed Gnasher
+	[173032] = true,	-- Lost Sole
+	[173033] = true,	-- Iridescent Amberjack
+	[173034] = true,	-- Silvergill Pike
+	[173035] = true,	-- Pocked Bonefish
+	[173036] = true,	-- Spinefin Piranha
+	[173037] = true,	-- Elysian Thade
+	[174327] = true,	-- Malformed Gnasher
 }
 
-db["Bait"] = {
+db.Bait = {
 	 -- ID,	--Item name
-	173038,	-- Lose Sole bait
-	173039,	-- Iridescent amberjack bait
-	173040,	-- Silvergill pike bait
-	173041,	-- Pocked Bonefish bait
-	173042,	-- Spinefin piranha bait
-	173043,	-- Elysian thade bait
+	[173038] = true,	-- Lose Sole bait
+	[173039] = true,	-- Iridescent amberjack bait
+	[173040] = true,	-- Silvergill pike bait
+	[173041] = true,	-- Pocked Bonefish bait
+	[173042] = true,	-- Spinefin piranha bait
+	[173043] = true,	-- Elysian thade bait
 }
 -- now that db is populated lets pass it on.
 addonTable.db = db
