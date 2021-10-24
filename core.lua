@@ -17,6 +17,7 @@ local MatchIDs
 local Tooltip
 local Result = { }
 local Group
+local filterSet = db.Filter.Fish
 
 -- Create World Variable for db
 ShadowLands_Fishing = db
@@ -37,30 +38,32 @@ local function tooltipInit()
 	return tip
 end
 
+-- Create Filters
+local function CreateFilter(filterName, name, desc)
 -- Register Filter with adibags
-local setFilter = AdiBags:RegisterFilter(db.Filter.Fish.title, 98, "ABEvent-1.0")
-setFilter.uiName = db.Filter.Fish.uiName
-setFilter.uiDesc = db.Filter.Fish.uiDesc
+local filter = AdiBags:RegisterFilter(filterSet.title, 98, "ABEvent-1.0")
+filter.uiName = filterSet.uiName
+filter.uiDesc = filterSet.uiDesc
 
-function setFilter:OnInitialize()
+function filter:OnInitialize()
 	self.items = db.Fish
 end
 
-function setFilter:Update()
+function filter:Update()
 	SendMessage("AdiBags_FiltersChanged")
 end
 
-function setFilter:OnEnable()
+function filter:OnEnable()
 	AdiBags:UpdateFilters()
 end
 
-function setFilter:OnDisable()
+function filter:OnDisable()
 	AdiBags:UpdateFilters()
 end
 
-function setFilter:Filter(slotData)
+function filter:Filter(slotData)
 	if self.items[tonumber(slotData.itemId)] then
-		return db.Filter.Fish.title
+		return filterSet.title
 	end
 
 	tooltip = tooltip or tooltipInit()
@@ -74,4 +77,5 @@ function setFilter:Filter(slotData)
 	end
 
 	tooltip:Hide()
+end
 end
