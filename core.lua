@@ -18,18 +18,11 @@ local Tooltip
 local Result = { }
 local Group
 
-
 -- Create World Variable for db
 ShadowLands_Fishing = db
 
 -- addon info
 local version = GetAddOnMetadata(addonName, "Version");
-
--- Register this addon with AdiBags
-local setFilter = AdiBags:RegisterFilter(addonName, 100, "ABEvent-1.0")
-setFilter.uiName = db.name
-setFilter.uiDesc = db.desc .. "     Version: " .. version
-
 
 local function tooltipInit()
 	local tip, leftside = CreateFrame("GameTooltip"), {}
@@ -44,29 +37,30 @@ local function tooltipInit()
 	return tip
 end
 
-local relicFilter = AdiBags:RegisterFilter(db.Filter.Fish.uiName, 98, "ABEvent-1.0")
-relicFilter.uiName = db.Filter.Fish.uiName
-relicFilter.uiDesc = db.Filter.Fish.uiDesc
+-- Register Filter with adibags
+local setFilter = AdiBags:RegisterFilter(db.Filter.Fish.title, 98, "ABEvent-1.0")
+setFilter.uiName = db.Filter.Fish.uiName
+setFilter.uiDesc = db.Filter.Fish.uiDesc
 
-function relicFilter:OnInitialize()
+function setFilter:OnInitialize()
 	self.items = db.Fish
 end
 
-function relicFilter:Update()
+function setFilter:Update()
 	SendMessage("AdiBags_FiltersChanged")
 end
 
-function relicFilter:OnEnable()
+function setFilter:OnEnable()
 	AdiBags:UpdateFilters()
 end
 
-function relicFilter:OnDisable()
+function setFilter:OnDisable()
 	AdiBags:UpdateFilters()
 end
 
-function relicFilter:Filter(slotData)
+function setFilter:Filter(slotData)
 	if self.items[tonumber(slotData.itemId)] then
-		return db.Filter.Fish.name
+		return db.Filter.Fish.title
 	end
 
 	tooltip = tooltip or tooltipInit()
