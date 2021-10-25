@@ -2,7 +2,6 @@
 ## Title: AdiBags - Shadowlands Crafting-Fishing
 ## Version: 1.0
 ## Author: Bearesquishy
-## SavedVariables: BearLeeAbleShadowlandsFishingDB
 ## X-License: GPL v3
 ## DefaultState: enabled
 ## Dependancies: AdiBags
