@@ -1,6 +1,6 @@
--- AdiBags_Shadowlands_Crafting - Fish db
+-- AdiBags_Shadowlands_Fishing - Database
 -- Created by N6REJ character is Bearesquishy - dalaran please credit whenever.
--- Source on GitHub: https://github.com/N6REJ/AdiBags_Shadowlands_Crafting
+-- Source on GitHub: https://github.com/N6REJ/Adibags_Shadowlands_Fishing
 --
 local addonName, addonTable, addon = ...
 
