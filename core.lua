@@ -14,10 +14,8 @@ ViragDevTool:ViragDevTool_AddData(addonTable)
 
 local db = addonTable.db
 local MatchIDs
-local Tooltip
+local tooltip
 local Result = { }
-local Group
-local filterSet = db.Filter.Fish
 
 -- Create World Variable for db
 ShadowLands_Fishing = db
@@ -39,43 +37,61 @@ local function tooltipInit()
 end
 
 -- Create Filters
-local function CreateFilter(filterName, name, desc)
--- Register Filter with adibags
-local filter = AdiBags:RegisterFilter(filterSet.title, 98, "ABEvent-1.0")
-filter.uiName = filterSet.uiName
-filter.uiDesc = filterSet.uiDesc
+local function CreateFilter(name, uiName, uiDesc, title, db)
+	
+	local filterSet = db.Filters.name
+	local uiName = filterSet.uiName
+	local uiDesc = filterSet.uiDesc
+	local title = filterSet.title
 
-function filter:OnInitialize()
-	self.items = db.Fish
-end
+	-- Register Filter with adibags
+	local filter = AdiBags:RegisterFilter(uiName, 98, "ABEvent-1.0")
 
-function filter:Update()
-	SendMessage("AdiBags_FiltersChanged")
-end
-
-function filter:OnEnable()
-	AdiBags:UpdateFilters()
-end
-
-function filter:OnDisable()
-	AdiBags:UpdateFilters()
-end
-
-function filter:Filter(slotData)
-	if self.items[tonumber(slotData.itemId)] then
-		return filterSet.title
+	--Get item table
+	filter.items = db.filterName
+	
+	function filter:OnInitialize()
+		-- Assign item table to filter
+		self.items = db.fish
 	end
-
-	tooltip = tooltip or tooltipInit()
-	tooltip:SetOwner(UIParent, "ANCHOR_NONE")
-	tooltip:ClearLines()
-
-	if slotData.bag == BANK_CONTAINER then
-		tooltip:SetInventoryItem("player", BankButtonIDToInvSlotID(slotData.slot, nil))
-	else
-		tooltip:SetBagItem(slotData.bag, slotData.slot)
+	
+	function filter:Update()
+		self:SendMessage("AdiBags_FiltersChanged")
 	end
+	
+	function filter:OnEnable()
+		AdiBags:UpdateFilters()
+	end
+	
+	function filter:OnDisable()
+		AdiBags:UpdateFilters()
+	end
+	
+	function filter:Filter(slotData)
+		if self.items[tonumber(slotData.itemId)] then
+			return filterSet.title
+		end
+		
+		tooltip = tooltip or tooltipInit()
+		tooltip:SetOwner(UIParent, "ANCHOR_NONE")
+		tooltip:ClearLines()
+		
+		if slotData.bag == BANK_CONTAINER then
+			tooltip:SetInventoryItem("player", BankButtonIDToInvSlotID(slotData.slot, nil))
+		else
+			tooltip:SetBagItem(slotData.bag, slotData.slot)
+		end
+		
+		tooltip:Hide()
+	end
+end
 
-	tooltip:Hide()
+-- Run filters
+local function AllFilters(db)
+	for name, group in pairs(db.Filters) do
+		CreateFilter(name, group.uiName, group.uiDesc, group.title, db)
+    end
 end
-end
+
+-- Start here
+AllFilters(db)

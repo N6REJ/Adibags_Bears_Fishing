@@ -11,18 +11,16 @@ db.name = "Shadowlands Fishing"
 db.desc = "Fish and Bait found while fishing in shadowlands"
 
 -- Filter info
-db.Filter = {
+db.Filters = {
 	["Fish"] = {
 		uiName = "Shadowlands Fish",
 		uiDesc = "Fish found while fishing in Shadowlands",
-		FilterName = "fishFilter",
 		title = "Fish",
 	},
 	["Bait"] = {
 		uiName = "Shadowlands Bait",
 		uiDesc = "Bait found while fishing in Shadowlands",
-		FilterName = "baitFilter",
-		title = "Bait"
+		title = "Bait",
 	},
 }
 
