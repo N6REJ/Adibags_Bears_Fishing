@@ -9,19 +9,13 @@ local addonName, addonTable, addon = ...
 local AdiBags = LibStub("AceAddon-3.0"):GetAddon("AdiBags")
 
 -- Debug tools
-LoadAddOn("ViragDevTool")
-ViragDevTool:ViragDevTool_AddData(addonTable)
+--LoadAddOn("ViragDevTool")
+--ViragDevTool:ViragDevTool_AddData(addonTable)
 
 local db = addonTable.db
 local MatchIDs
 local tooltip
 local Result = { }
-
--- Create World Variable for db
-ShadowLands_Fishing = db
-
--- addon info
-local version = GetAddOnMetadata(addonName, "Version");
 
 local function tooltipInit()
 	local tip, leftside = CreateFrame("GameTooltip"), {}
@@ -37,22 +31,17 @@ local function tooltipInit()
 end
 
 -- Create Filters
-local function CreateFilter(name, uiName, uiDesc, title, db)
-	
-	local filterSet = db.Filters.name
-	local uiName = filterSet.uiName
-	local uiDesc = filterSet.uiDesc
-	local title = filterSet.title
+local function CreateFilter(name, uiName, uiDesc, title, items)
 
 	-- Register Filter with adibags
 	local filter = AdiBags:RegisterFilter(uiName, 98, "ABEvent-1.0")
+	filter.uiName = uiName
+	filter.uiDesc = uiDesc .. "Version:" .. GetAddOnMetadata(addonName, "Version");
+	filter.items = items
 
-	--Get item table
-	filter.items = db.filterName
-	
 	function filter:OnInitialize()
 		-- Assign item table to filter
-		self.items = db.fish
+		self.items = filter.items
 	end
 	
 	function filter:Update()
@@ -69,7 +58,7 @@ local function CreateFilter(name, uiName, uiDesc, title, db)
 	
 	function filter:Filter(slotData)
 		if self.items[tonumber(slotData.itemId)] then
-			return filterSet.title
+			return title
 		end
 		
 		tooltip = tooltip or tooltipInit()
@@ -89,7 +78,11 @@ end
 -- Run filters
 local function AllFilters(db)
 	for name, group in pairs(db.Filters) do
-		CreateFilter(name, group.uiName, group.uiDesc, group.title, db)
+		-- name = Name of table
+		-- group.uiName = Name to use in filter listing
+		-- group.uiDesc = Description to show in filter listing
+		-- group.items = table of items to sort
+		CreateFilter(name, group.uiName, group.uiDesc, group.title, group.items)
     end
 end
 
