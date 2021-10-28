@@ -17,6 +17,9 @@ local MatchIDs
 local tooltip
 local Result = { }
 
+-- Debug mode switch
+local debugMode = true
+
 local function tooltipInit()
 	local tip, leftside = CreateFrame("GameTooltip"), {}
 	for i = 1, 6 do
@@ -43,34 +46,34 @@ local function CreateFilter(name, uiName, uiDesc, title, items)
 		-- Assign item table to filter
 		self.items = filter.items
 	end
-	
+
 	function filter:Update()
 		self:SendMessage("AdiBags_FiltersChanged")
 	end
-	
+
 	function filter:OnEnable()
 		AdiBags:UpdateFilters()
 	end
-	
+
 	function filter:OnDisable()
 		AdiBags:UpdateFilters()
 	end
-	
+
 	function filter:Filter(slotData)
 		if self.items[tonumber(slotData.itemId)] then
 			return title
 		end
-		
+
 		tooltip = tooltip or tooltipInit()
 		tooltip:SetOwner(UIParent, "ANCHOR_NONE")
 		tooltip:ClearLines()
-		
+
 		if slotData.bag == BANK_CONTAINER then
 			tooltip:SetInventoryItem("player", BankButtonIDToInvSlotID(slotData.slot, nil))
 		else
 			tooltip:SetBagItem(slotData.bag, slotData.slot)
 		end
-		
+
 		tooltip:Hide()
 	end
 end
@@ -84,6 +87,11 @@ local function AllFilters(db)
 		-- group.items = table of items to sort
 		CreateFilter(name, group.uiName, group.uiDesc, group.title, group.items)
     end
+	if debugMode then
+		for i, filter in AdiBags:IterateFilters() do
+			print(filter.uiName .. ": Fishing")
+		end
+	end
 end
 
 -- Start here
