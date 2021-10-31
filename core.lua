@@ -12,7 +12,7 @@ local MatchIDs
 local tooltip
 local Result = {}
 -- Debug mode switch
-local debugMode = true
+local debugMode = false
 
 local function tooltipInit()
 	local tip, leftside = CreateFrame("GameTooltip"), {}
