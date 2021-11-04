@@ -1,6 +1,6 @@
 ## Interface: 90105
 ## Title: AdiBags - Shadowlands Fishing
-## Version: 1.5
+## Version: @project-version@
 ## Author: Bearesquishy
 ## X-License: MIT
 ## DefaultState: enabled
