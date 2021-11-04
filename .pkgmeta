@@ -1,1 +1,9 @@
-manual-changelog: changelog.txt
+package-as: AdiBags_Shadowlands_Fishing
+
+ignore:
+	- README.md
+
+required-dependencies:
+    - 23350-adibags
+
+license-output: LICENSE
