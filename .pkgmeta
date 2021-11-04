@@ -4,6 +4,4 @@ ignore:
 	- README.md
 
 required-dependencies:
-    - 23350-adibags
-
-license-output: LICENSE
+	- AdiBags
