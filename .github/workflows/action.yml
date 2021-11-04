@@ -1,4 +1,4 @@
-name: AdiBags_Shadowlands_Fishing
+name: Build Curse Release
 on:
   push:
     tags:
