@@ -3,6 +3,7 @@
 ## Version: @project-version@
 ## Author: Bearesquishy
 ## X-License: MIT
+## X-Curse-Project-ID: 446518
 ## DefaultState: enabled
 ## Dependancies: AdiBags
 
