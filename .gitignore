@@ -1,6 +1,11 @@
-# Visual Studio
+# IDE's
+.idea
 .vs
 .vscode
+
+# BigWigs packager
+.release
+/packager
 
 # Compiled Lua sources
 luac.out
@@ -43,5 +48,3 @@ luac.out
 *.x86_64
 *.hex
 
-# phpstorm
-.idea
