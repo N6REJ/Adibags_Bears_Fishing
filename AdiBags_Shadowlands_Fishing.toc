@@ -2,7 +2,7 @@
 ## Title: AdiBags - Shadowlands Fishing
 ## Version: 1.5
 ## Author: Bearesquishy
-## X-License: GPL v3
+## X-License: MIT
 ## DefaultState: enabled
 ## Dependancies: AdiBags
 
