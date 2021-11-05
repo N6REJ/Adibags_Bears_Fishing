@@ -1,4 +1,4 @@
-# Adibags Shadowlands Fishing
+# Adibags Shadowlands Fishing  ![image](https://img.shields.io/badge/Supports-Shadowlands-0B68D7)
 sorts "Fish" & "Bait" into their own categories.
 
 ## REQUIRES ADIBAGS
