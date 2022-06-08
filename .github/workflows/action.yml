@@ -1,4 +1,4 @@
-name: Build Curse Release
+name: Build Release
 on:
   push:
     tags:
@@ -13,4 +13,4 @@ jobs:
       - name: Clone project
         uses: actions/checkout@v1
       - name: Package and release
-        uses: BigWigsMods/packager@v1
+        uses: BigWigsMods/packager@v2.0.3
