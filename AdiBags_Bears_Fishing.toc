@@ -1,5 +1,5 @@
 ## Interface: 90205
-## Title: AdiBags - Shadowlands Fishing
+## Title: AdiBags - Bears Fishing
 ## Version: @project-version@
 ## Author: Bearesquishy
 ## X-License: MIT

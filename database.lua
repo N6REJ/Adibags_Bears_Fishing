@@ -1,4 +1,4 @@
--- AdiBags_Shadowlands_Fishing - Database
+-- AdiBags_Bears_Fishing - Database
 -- Created by N6REJ character is Bearesquishy - dalaran please credit whenever.
 -- Source on GitHub: https://n6rej.github.io
 --
@@ -7,14 +7,14 @@ local addonName, addonTable, addon = ...
 -- Create addon table
 local db = { }
 
-db.name = "Shadowlands Fishing"
+db.name = "Bears Fishing"
 db.desc = "Fish and Bait found while fishing in shadowlands"
 
 -- Filter info
 db.Filters = {
 	["Fish"] = {
-		uiName = "Shadowlands Fish",
-		uiDesc = "Fish found while fishing in Shadowlands",
+		uiName = "Bears Fish",
+		uiDesc = "Fish found while fishing in Bears",
 		title = "Fish",
 		items = {
 			-- ID,	--Item name
@@ -29,8 +29,8 @@ db.Filters = {
 		},
 	},
 	["Bait"] = {
-		uiName = "Shadowlands Bait",
-		uiDesc = "Bait found while fishing in Shadowlands",
+		uiName = "Bears Bait",
+		uiDesc = "Bait found while fishing in Bears",
 		title = "Bait",
 		items = {
 			-- ID,	--Item name
