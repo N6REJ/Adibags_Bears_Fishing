@@ -6,7 +6,8 @@
 ## X-Curse-Project-ID: 446518
 ## X-Wago-ID: JZKb8dN1
 ## DefaultState: enabled
-## Dependancies: AdiBags
+## Dependencies: AdiBags
 
+locales.lua
 database.lua
 core.lua
