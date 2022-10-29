@@ -8,18 +8,17 @@ local addonName, addonTable = ...;
 local L = addonTable.locales;
 local Expansion = L["SHADOWLANDS"]
 
-
 -- Create addon table
 local db = { }
 
 db.name = "Bears Fishing"
-db.desc = "Fish and Bait found while fishing in shadowlands"
+db.desc = "Fish and Bait found while fishing in " .. Expansion
 
 -- Filter info
 db.Filters = {
 	["Fish"] = {
 		uiName = "Bears Fish",
-		uiDesc = "Fish found while fishing in Bears",
+		uiDesc = "Fish found while fishing in " .. Expansion,
 		title = "Fish",
 		items = {
 			-- ID,	--Item name
@@ -35,7 +34,7 @@ db.Filters = {
 	},
 	["Bait"] = {
 		uiName = "Bears Bait",
-		uiDesc = "Bait found while fishing in Bears",
+		uiDesc = "Bait found while fishing in " .. Expansion,
 		title = "Bait",
 		items = {
 			-- ID,	--Item name
