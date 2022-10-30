@@ -1,12 +1,13 @@
 -- AdiBags_Bears_Fishing - Database
 -- Created by N6REJ character is Bearesquishy - dalaran please credit whenever.
 -- Source on GitHub: https://n6rej.github.io
-
+---@type
+---
 local addonName, addonTable = ...;
 
--- Get locals namse
+-- Get locals name
 local L = addonTable.locales;
-local Expansion = L["SHADOWLANDS"]
+local Expansion = L["Shadowlands"]
 
 -- Create addon table
 local db = { }
