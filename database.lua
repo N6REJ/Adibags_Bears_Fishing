@@ -6,8 +6,8 @@
 local addonName, addonTable = ...;
 
 -- Get locals name
-local L = addonTable.locales;
-local Expansion = L["Shadowlands"]
+local E = addonTable.expansion;
+local Expansion = E["Shadowlands"]
 
 -- Create addon table
 local db = { }
