@@ -12,7 +12,7 @@ local Expansion = E["Shadowlands"]
 -- Create addon table
 local db = { }
 
-db.name = Expansion .. " Fishing"
+db.name = "Bears " .. Expansion .. " Fishing"
 db.desc = "Fish and Bait found while fishing in " .. Expansion
 
 -- Filter info
