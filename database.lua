@@ -18,7 +18,7 @@ db.desc = "Fish and Bait found while fishing in " .. Expansion
 -- Filter info
 db.Filters = {
 	["Fish"] = {
-		uiName = Expansion .. " Fish",
+		uiName = "Bears " .. Expansion .. " Fish",
 		uiDesc = "Fish found while fishing in " .. Expansion,
 		title = "Fish",
 		items = {
@@ -34,7 +34,7 @@ db.Filters = {
 		},
 	},
 	["Bait"] = {
-		uiName = Expansion .. " Bait",
+		uiName = "Bears " .. Expansion .. " Bait",
 		uiDesc = "Bait found while fishing in " .. Expansion,
 		title = "Bait",
 		items = {
