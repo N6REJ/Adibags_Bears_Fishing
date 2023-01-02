@@ -35,6 +35,15 @@ db.Filters = {
 			[194968] = true, -- Cerulean Spinefish
 			[199346] = true, -- Rotten Rimefin Tuna
 		}
+	},
+	["Tools"] = {
+		uiName = "Bears " .. Expansion .. " Tools",
+		uiDesc = "Tools used in " .. Expansion,
+		title = "Tools",
+		items = {
+			-- ID    = true,    --Item name
+			[199696] = true, -- Iskaaran Ice Axe ( used for ice fishing )
+		}
 	}
 }
 
