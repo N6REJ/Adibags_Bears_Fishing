@@ -1,4 +1,4 @@
-# Adibags Bears Fishing 
+# AdiBags Bears Fishing 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Size](https://img.shields.io/github/repo-size/N6REJ/AdiBags_Bears_Fishing) 
 [![Build Curse Release](https://github.com/N6REJ/AdiBags_Bears_Fishing/actions/workflows/release.yml/badge.svg)](https://github.com/N6REJ/AdiBags_Bears_Fishing/actions/workflows/release.yml) 
